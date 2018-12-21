@@ -1,0 +1,41 @@
+[
+  { "Title": "Searching on Google / Product hunt", "Type": "action" },
+  { "Title": "Click on the link to visit product home page", "Type": "action" },
+  { "Title": "Feature", "Type": "action" },
+  { "Title": "Pricing", "Type": "action" },
+  {
+    "Title": "Signup",
+    "Type": "action",
+    "Child": [
+      {
+        "Title": "Success",
+        "Type": "action",
+        "Child": [
+          { "Title": "Go back to email to verify", "Type": "action" },
+          { "Title": "Click CTA from email", "Type": "action" }
+        ]
+      },
+      {
+        "Title": "Failure",
+        "Type": "action",
+        "Child": [
+          { "Title": "Go back to email to verify", "Type": "action" },
+          { "Title": "Click CTA from email", "Type": "action" }
+        ]
+      }
+    ]
+  },
+  { "Title": "Visit to login page", "Type": "action" },
+  { "Title": "Dashboard", "Type": "action" },
+  { "Title": "Create project by entering name", "Type": "action" },
+  { "Title": "Open project", "Type": "action" },
+  { "Title": "Enter Info : How this domain works?", "Type": "action" },
+  {
+    "Title": "Enter Info : define problem this product trying to solve",
+    "Type": "action"
+  },
+  { "Title": "Enter Info : List of user segment & persona", "Type": "action" },
+  { "Title": "User story", "Type": "action" },
+  { "Title": "US : Trigger", "Type": "action" },
+  { "Title": "US : Journey 1", "Type": "action" }
+]

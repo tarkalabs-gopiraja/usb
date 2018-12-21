@@ -1,0 +1,112 @@
+@mixin border {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+@mixin after {
+  @include border;
+  top: -11px;
+}
+@mixin before {
+  @include border;
+  bottom: -11px;
+}
+
+.userJourney {
+  & > ul > span {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    & > li:first-child > p::after {
+      display: none;
+    }
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+
+    & li {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+
+      &.multiChild {
+        position: relative;
+
+        & ul {
+          margin: 0;
+
+          &:first-child,
+          &:last-child {
+            &::before,
+            &::after {
+              width: 50%;
+            }
+          }
+
+          &:first-child {
+            &::before,
+            &::after {
+              margin-right: 0;
+            }
+          }
+          &:last-child {
+            &::before,
+            &::after {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      & > ul {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        &::after {
+          @include after;
+          height: 1px;
+          width: auto;
+          top: 0;
+        }
+
+        &::before {
+          @include before;
+          height: 1px;
+          width: auto;
+          bottom: 0;
+        }
+      }
+
+      & p {
+        display: inline-block;
+        width: 155px;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        position: relative;
+
+        &::before {
+          @include before;
+        }
+        &::after {
+          @include after;
+        }
+      }
+    }
+  }
+}
