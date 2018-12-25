@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment} from "react";
 import "../assets/css/userJourney.css";
 
 const action = "cta";
@@ -48,6 +48,26 @@ const Journey = [
   { Title: "US : Journey 1", Type: field }
 ];
 
+const SubTree = ({
+  Title,
+  Type,
+  Child
+}) => {
+  const hasChildren = Array.isArray(Child) && Child.length !==0
+  return (
+    <ul>
+      <li>
+        <p>
+          {Title} : {Type}
+        </p>
+      </li>
+      <li className={hasChildren ? "multiChild" : undefined}>
+        {Child && Child.map((props, i) => <SubTree key={i} {...props} />)}
+      </li>
+    </ul>
+  );
+}
+
 class userJourney extends React.Component {
   render() {
     return (
@@ -57,184 +77,27 @@ class userJourney extends React.Component {
         <ul>
           {Journey.map((data, i) => {
             const { Title, Type, Child } = data;
+            const hasChildren = Array.isArray(Child) && Child.length !==0
+
             return (
-              <span key={i}>
+              <Fragment key={i}>
                 <li>
                   <p>
                     {Title} : {Type}
                   </p>
                 </li>
 
-                {Child && (
+                {hasChildren && (
                   <li className="multiChild">
-                    {Child.map((data, i) => {
-                      const { Title, Type, Child } = data;
-                      return (
-                        <ul key={i}>
-                          <li>
-                            <p>
-                              {Title} : {Type}
-                            </p>
-                          </li>
-
-                          {Child && (
-                            <li className="multiChild">
-                              {Child.map((data, i) => {
-                                const { Title, Type, Child } = data;
-                                return (
-                                  <ul key={i}>
-                                    <li>
-                                      <p>
-                                        {Title} : {Type}
-                                      </p>
-                                    </li>
-
-                                    {Child && (
-                                      <li className="multiChild">
-                                        {Child.map((data, i) => {
-                                          const { Title, Type, Child } = data;
-                                          return (
-                                            <ul key={i}>
-                                              <li>
-                                                <p>
-                                                  {Title} : {Type}
-                                                </p>
-                                              </li>
-
-                                              {Child && (
-                                                <li className="multiChild">
-                                                  {Child.map((data, i) => {
-                                                    const {
-                                                      Title,
-                                                      Type,
-                                                      Child
-                                                    } = data;
-                                                    return (
-                                                      <ul key={i}>
-                                                        <li>
-                                                          <p>
-                                                            {Title} : {Type}
-                                                          </p>
-                                                        </li>
-                                                      </ul>
-                                                    );
-                                                  })}
-                                                </li>
-                                              )}
-                                            </ul>
-                                          );
-                                        })}
-                                      </li>
-                                    )}
-                                  </ul>
-                                );
-                              })}
-                            </li>
-                          )}
-                        </ul>
-                      );
-                    })}
+                    {Child && Child.map((props, i) => 
+                      <SubTree key={i} {...props} />
+                    )}
                   </li>
                 )}
-              </span>
+              </Fragment>
             );
           })}
-
-          {/* {Object.keys(this.props.data).map(propKey => {
-            <li key={propKey}>
-              {this.props.data[propKey]}
-
-              <ul>
-                {Object.keys(this.props.data[propKey]).map(childPropKey => {
-                  <li key={childPropKey}>
-                    {this.props.data[propKey][childPropKey]}
-                  </li>;
-                })}
-              </ul>
-            </li>;
-          })} */}
         </ul>
-
-        {/* <ul>
-          <li>
-            <p>Trigger : Primary Influnce</p>
-          </li>
-          <li>
-            <p>abcd</p>
-          </li>
-          <li>
-            <p>abcd</p>
-          </li>
-          <li>
-            <p>abcd</p>
-          </li>
-          <li>
-            <p>abcd</p>
-          </li>
-          <li>
-            <p>abcd</p>
-          </li>
-          <li className="multiChild">
-            <ul>
-              <li>
-                <p>abcd</p>
-              </li>
-              <li>
-                <p>abcd</p>
-              </li>
-              <li>
-                <p>abcd</p>
-              </li>
-              <li>
-                <p>abcd</p>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <p>abcd</p>
-              </li>
-              <li>
-                <p>abcd</p>
-              </li>
-              <li className="multiChild">
-                <ul>
-                  <li>
-                    <p>multiChild</p>
-                  </li>
-                  <li>
-                    <p>abcd</p>
-                  </li>
-                  <li>
-                    <p>abcd</p>
-                  </li>
-                  <li>
-                    <p>abcd</p>
-                  </li>
-                </ul>
-                <ul>
-                  <li>
-                    <p>multiChild</p>
-                  </li>
-                  <li>
-                    <p>abcd</p>
-                  </li>
-                  <li>
-                    <p>abcd</p>
-                  </li>
-                  <li>
-                    <p>abcd</p>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <p>abcd</p>
-              </li>
-              <li>
-                <p>abcd</p>
-              </li>
-            </ul>
-          </li>
-        </ul> */}
       </div>
     );
   }
