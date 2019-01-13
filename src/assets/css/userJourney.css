@@ -1,14 +1,63 @@
-/* line 22, ../../../sass/userJourney.scss */
+/* line 21, ../../../sass/userJourney.scss */
+.journeyWrapper {
+  display: flex;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+/* line 27, ../../../sass/userJourney.scss */
+.journeyWrapper > div {
+  padding: 10px;
+}
+/* line 31, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-container {
+  border: 1px solid grey;
+  padding: 10px;
+}
+/* line 35, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-clipboard, .journeyWrapper > div.userJourneyText .ql-hidden {
+  display: none;
+}
+/* line 38, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-editor {
+  outline: none;
+}
+/* line 41, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-editor ul, .journeyWrapper > div.userJourneyText .ql-editor ol {
+  list-style: disc;
+}
+/* line 44, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-editor ul .ql-indent-1, .journeyWrapper > div.userJourneyText .ql-editor ol .ql-indent-1 {
+  margin-left: 15px;
+}
+/* line 47, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-editor ul .ql-indent-2, .journeyWrapper > div.userJourneyText .ql-editor ol .ql-indent-2 {
+  margin-left: 30px;
+}
+/* line 50, ../../../sass/userJourney.scss */
+.journeyWrapper > div.userJourneyText .ql-editor ul .ql-indent-3, .journeyWrapper > div.userJourneyText .ql-editor ol .ql-indent-3 {
+  margin-left: 45px;
+}
+/* line 58, ../../../sass/userJourney.scss */
+.journeyWrapper > div.secondaryText ul {
+  margin: 0 0 45px;
+}
+/* line 64, ../../../sass/userJourney.scss */
+.journeyWrapper .btn {
+  margin: 25px 0;
+}
+
+/* line 70, ../../../sass/userJourney.scss */
 .userJourney > ul > span {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
-/* line 27, ../../../sass/userJourney.scss */
+/* line 75, ../../../sass/userJourney.scss */
 .userJourney > ul > span > li:first-child > p::after {
   display: none;
 }
-/* line 32, ../../../sass/userJourney.scss */
+/* line 80, ../../../sass/userJourney.scss */
 .userJourney ul {
   margin: 0;
   padding: 0;
@@ -17,39 +66,39 @@
   flex-direction: column;
   list-style: none;
 }
-/* line 40, ../../../sass/userJourney.scss */
+/* line 88, ../../../sass/userJourney.scss */
 .userJourney ul li {
   display: flex;
   flex-direction: row;
   list-style: none;
 }
-/* line 45, ../../../sass/userJourney.scss */
+/* line 93, ../../../sass/userJourney.scss */
 .userJourney ul li.multiChild {
   position: relative;
 }
-/* line 48, ../../../sass/userJourney.scss */
+/* line 96, ../../../sass/userJourney.scss */
 .userJourney ul li.multiChild ul {
   margin: 0;
 }
-/* line 53, ../../../sass/userJourney.scss */
+/* line 101, ../../../sass/userJourney.scss */
 .userJourney ul li.multiChild ul:first-child::before, .userJourney ul li.multiChild ul:first-child::after, .userJourney ul li.multiChild ul:last-child::before, .userJourney ul li.multiChild ul:last-child::after {
   width: 50%;
 }
-/* line 60, ../../../sass/userJourney.scss */
+/* line 108, ../../../sass/userJourney.scss */
 .userJourney ul li.multiChild ul:first-child::before, .userJourney ul li.multiChild ul:first-child::after {
   margin-right: 0;
 }
-/* line 66, ../../../sass/userJourney.scss */
+/* line 114, ../../../sass/userJourney.scss */
 .userJourney ul li.multiChild ul:last-child::before, .userJourney ul li.multiChild ul:last-child::after {
   margin-left: 0;
 }
-/* line 74, ../../../sass/userJourney.scss */
+/* line 122, ../../../sass/userJourney.scss */
 .userJourney ul li > ul {
   position: relative;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 79, ../../../sass/userJourney.scss */
+/* line 127, ../../../sass/userJourney.scss */
 .userJourney ul li > ul::after {
   content: "";
   display: inline-block;
@@ -65,7 +114,7 @@
   width: auto;
   top: 0;
 }
-/* line 86, ../../../sass/userJourney.scss */
+/* line 134, ../../../sass/userJourney.scss */
 .userJourney ul li > ul::before {
   content: "";
   display: inline-block;
@@ -81,7 +130,7 @@
   width: auto;
   bottom: 0;
 }
-/* line 94, ../../../sass/userJourney.scss */
+/* line 142, ../../../sass/userJourney.scss */
 .userJourney ul li p {
   display: inline-block;
   width: 155px;
@@ -91,7 +140,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
 }
-/* line 103, ../../../sass/userJourney.scss */
+/* line 151, ../../../sass/userJourney.scss */
 .userJourney ul li p::before {
   content: "";
   display: inline-block;
@@ -104,7 +153,7 @@
   right: 0;
   bottom: -11px;
 }
-/* line 106, ../../../sass/userJourney.scss */
+/* line 154, ../../../sass/userJourney.scss */
 .userJourney ul li p::after {
   content: "";
   display: inline-block;

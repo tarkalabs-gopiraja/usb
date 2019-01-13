@@ -29,6 +29,12 @@ class CreateProject extends React.Component {
         <h2>Create Project</h2>
         <form onSubmit={this.handleSubmit}>
           <FieldSet
+            label="Project Name"
+            id="project-name"
+            inputType="text"
+            fn={this.handleChange}
+          />
+          <FieldSet
             label="How this Domain / Industry works?"
             id="domain-industry"
             inputType="textarea"

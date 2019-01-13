@@ -18,6 +18,54 @@
   bottom: -11px;
 }
 
+.journeyWrapper{
+  display:flex;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+
+  & > div{
+    padding:10px;
+
+    &.userJourneyText{
+      & .ql-container{
+        border: 1px solid grey;
+        padding: 10px;
+      }
+      & .ql-clipboard, & .ql-hidden{
+        display: none;
+      }
+      & .ql-editor{
+        outline: none;
+
+        & ul, & ol{
+          list-style: disc;
+
+          & .ql-indent-1{
+            margin-left: 15px;
+          }
+          & .ql-indent-2{
+            margin-left: 30px;
+          }
+          & .ql-indent-3{
+            margin-left: 45px;
+          }
+        }
+      }
+    }
+
+    &.secondaryText{
+      & ul{
+        margin: 0 0 45px;
+      }
+    }
+  }
+
+  & .btn{
+    margin: 25px 0;
+  }
+}
+
 .userJourney {
   & > ul > span {
     align-items: center;
