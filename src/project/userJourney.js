@@ -111,9 +111,6 @@ class userJourney extends React.Component {
   handleEnter(i, event){
     const code = event.keyCode || event.which;
 
-    console.log("handleEnter - event :", event);
-    console.log("handleEnter - i :", i);
-
     if(code === 13) {
       console.log("enter pressed");
       this.setState({
@@ -122,16 +119,23 @@ class userJourney extends React.Component {
     }
   }
 
-  handleDelete(i, event){
+  handleKeyPress(i, event){
     const code = event.keyCode || event.which;
 
-    console.log("handleDelete - event :", event);
-    console.log("handleDelete - i :", i);
+    console.log("Press :", code);
+
+    if (code === 9){
+      console.log("Tab pressed");
+    }
+
+    if (code === 16 & 9){
+      console.log("Shift Tab pressed");
+    }
     
     if (code === 8){
       const currentNode = this.state.journey[i];
-      console.log("delete pressed before prevent");
       if(currentNode.title.length === 0){
+        event.preventDefault();
         this.setState({
           journey: [...this.state.journey.slice(0, i), ...this.state.journey.slice(i + 1)],
         });
@@ -167,7 +171,7 @@ class userJourney extends React.Component {
             type="text"
             onChange={this.handleChange.bind(this, i, 'title')} 
             onKeyPress={this.handleEnter.bind(this, i)}
-            onKeyDown={this.handleDelete.bind(this, i)}
+            onKeyDown={this.handleKeyPress.bind(this, i)}
             placeholder="Title" 
             value={item.title}
           />
