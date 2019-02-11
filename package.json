@@ -6,6 +6,7 @@
     "firebase": "^5.7.0",
     "gojs": "^1.8.35",
     "himalaya": "^1.1.0",
+    "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-contenteditable": "^3.2.4",
     "react-dom": "^16.6.3",

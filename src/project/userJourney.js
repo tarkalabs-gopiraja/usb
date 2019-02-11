@@ -1,6 +1,7 @@
 import React, { Fragment} from "react";
 import "../assets/css/userJourney.css";
 import FieldSet from "../commons/FieldSet";
+import _ from 'lodash';
 
 const action = "cta";
 const page = "page";
@@ -121,19 +122,32 @@ class userJourney extends React.Component {
 
   handleKeyPress(i, event){
     const code = event.keyCode || event.which;
-
+    const currentNode = this.state.journey[i];
+    const { journey } = this.state;
     console.log("Press :", code);
 
     if (code === 9){
       console.log("Tab pressed");
+      console.log("i from tab", i, journey);
+      if (i >= 1) {
+        let newJourney = _.remove(journey, (val, index) => index == i);
+        const newIndex = i - 1;
+        console.log('debug newJourney', newJourney, newIndex);
+        console.log('debug newJourney[newIndex]', newJourney[newIndex]);
+        // newJourney[newIndex].child = {journey};
+        journey[newIndex].child = newJourney;
+        this.setState({ journey: journey});
+      }
+      event.preventDefault();
     }
 
     if (code === 16 & 9){
       console.log("Shift Tab pressed");
+      event.preventDefault();
     }
     
     if (code === 8){
-      const currentNode = this.state.journey[i];
+      console.log("i", i);
       if(currentNode.title.length === 0){
         event.preventDefault();
         this.setState({
@@ -164,7 +178,7 @@ class userJourney extends React.Component {
 
   createField() {
     return this.state.journey.map((item, i) => {
-      console.log("createField", item, i)
+      // console.log("createField", item, i)
       return (
         <div key={i} style={{display:'flex'}}>
           <input 
@@ -183,7 +197,7 @@ class userJourney extends React.Component {
   }
 
   render() {
-    console.log('this.state from render',this.state);
+    // console.log('this.state from render',this.state);
     const {journey} = this.state;
 
     return (
@@ -229,7 +243,7 @@ class userJourney extends React.Component {
           <button className="btn">Add another Journey</button>
         </div>
 
-        <div className="secondaryText">
+        {/* <div className="secondaryText">
             <div>
               <h2>Questions</h2>
               <p>List out the possible question user had in mind when reach this step</p>
@@ -256,10 +270,7 @@ class userJourney extends React.Component {
               </ul>
 
             </div>
-          
-
-          
-        </div>
+        </div> */}
 
       </div>
     );
